@@ -15,7 +15,7 @@ project = "Word Checker"  # Change app_name
 copyright = "2023, Eduardo Morais"
 author = "Eduardo Morais"
 release = "2023"
-version = "0.0.1.rc0"
+version = "0.0.1.rc1"
 
 
 # -- General configuration ---------------------------------------------------
