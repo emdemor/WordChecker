@@ -1,6 +1,5 @@
 from sys import stderr
-from types import NoneType
-from typing import Any, Dict, Union
+from typing import Any, Dict
 import spacy
 import difflib
 import numpy as np
@@ -33,7 +32,7 @@ class WordChecker:
 
     def __init__(self, lang: str) -> None:
         self.lang = lang
-        self.nlp = self.__get_spacy_model(self.lang)
+        self.nlp = download_spacy_model(self.__get_spacy_model(self.lang))
         self.frequency = self.__set_language_frequency()
         self.vocabulary = self.__set_vocabulary()
 
@@ -103,12 +102,12 @@ class WordChecker:
         """Select the most similar word according to a rule."""
         return similar_word_list[0][0]
 
-    def __get_spacy_model(self, lang) -> Union[spacy.language.Language, NoneType]:
+    def __get_spacy_model(self, lang: str) -> str:
         """Return the spacy model for the chosen language."""
         if lang == "pt":
-            return download_spacy_model("pt_core_news_md")
+            return "pt_core_news_md"
 
-        return None
+        return lang
 
     def __get_word_scores(self, word1: str, word2: str) -> Dict[str, Any]:
 
