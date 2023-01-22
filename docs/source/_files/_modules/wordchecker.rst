@@ -1,0 +1,5 @@
+wordchecker
+=====
+
+.. automodule:: wordchecker
+   :members:
